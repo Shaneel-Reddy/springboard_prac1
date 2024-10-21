@@ -5,14 +5,14 @@ import Header from "./components/Header";
 function App() {
   return (
     <>
-      <div className="div1">
+      <div className="parent">
         <Header />
-      </div>
-      <div className="div2">
-        <Body />
-      </div>
-      <div className="div3">
-        <Footer />
+        <div className="main">
+          <Body />
+        </div>
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
     </>
   );

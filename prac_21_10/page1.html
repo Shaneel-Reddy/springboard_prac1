@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        background-image: url("n1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .parent {
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 10% 80% 10%;
+        grid-template-columns: 10% 80% 10%;
+        border: dotted;
+      }
+      .header {
+        background-color: pink;
+        grid-column: 1/4;
+        grid-row: 1/2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid red;
+      }
+      .left {
+        background-color: lightcyan;
+        grid-column: 1/2;
+        grid-row: 2/3;
+        justify-content: first baseline;
+        border: 3px dotted red;
+      }
+      .main {
+        background-color: antiquewhite;
+        grid-column: 2/3;
+        grid-row: 2/3;
+      }
+      .right {
+        background-color: blueviolet;
+        grid-column: 3/4;
+        grid-row: 2/3;
+      }
+      .footer {
+        background-color: greenyellow;
+        grid-column: 1/4;
+        grid-row: 3/4;
+        text-align: center;
+      }
+      @media (max-width: 576px) {
+        .header__menu {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="header">
+        <div>Infosys Project Management</div>
+        <div class="header__menu">
+          <a href="#">Home</a>
+          <a href="#">Contact</a>
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+        </div>
+      </div>
+      <div class="left">Here Data Will Start</div>
+      <div class="main">This is Main Working Area</div>
+      <div class="right">This Left Area</div>
+      <div class="footer">Footer Section</div>
+    </div>
+  </body>
+</html>

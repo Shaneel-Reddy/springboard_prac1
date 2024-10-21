@@ -16,6 +16,7 @@ body {
     width: 100%;
     max-width: 400px;
     text-align: center;
+    grid-row: 10% 80% 10%;
 }
 
 .login-container h1,
@@ -29,6 +30,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
+    grid-column: 1/4;
 }
 
 .login-box h2,
