@@ -3,7 +3,9 @@ import "../App.css";
 export default function About() {
   return (
     <>
-      <h1>Welcome to Infosys Springboard</h1>
+      <div>
+        <h1>Welcome to Infosys Springboard</h1>
+      </div>
       <p>
         Infosys Springboard is an online learning platform that provides a wide
         range of courses and learning resources to help individuals upskill and

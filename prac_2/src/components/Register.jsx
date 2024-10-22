@@ -1,8 +1,11 @@
 import React from "react";
-import "../css/LoginSignup.css";
+import Header from "./Header"; // Assuming you have a Header component
+import "../App.css";
+
 export default function Signup() {
   return (
     <>
+      <Header />
       <div className="signup-container">
         <h1>Infosys SpringBoard</h1>
         <div className="signup-box">
