@@ -1,34 +1,71 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "../css/LoginSignup.css";
 import { Link } from "react-router-dom";
 
 export default function Signup() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [profilePictureURL, setProfilePictureURL] = useState("");
+  const firstNameRef = useRef(null);
+  const lastNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const addressRef = useRef(null);
+  const phoneNumberRef = useRef(null);
+  const passwordRef = useRef(null);
+  const profilePictureURLRef = useRef(null);
+
+  const [error, setError] = useState("");
+
+  const validateEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+
+  const validatePhoneNumber = (phoneNumber) => {
+    const phonePattern = /^[0-9]{10}$/;
+    return phonePattern.test(phoneNumber);
+  };
+
+  const validatePassword = (password) => {
+    const minLength = 8;
+    return password.length >= minLength;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    e.preventDefault();
+
+    const email = emailRef.current.value.trim();
+    const phoneNumber = phoneNumberRef.current.value.trim();
+    const password = passwordRef.current.value.trim();
+
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    if (!validatePhoneNumber(phoneNumber)) {
+      setError("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      setError("Password must be at least 8 characters long.");
+      return;
+    }
+
+    setError("");
     console.log({
-      firstName,
-      lastName,
+      firstName: firstNameRef.current.value,
+      lastName: lastNameRef.current.value,
       email,
-      address,
+      address: addressRef.current.value,
       phoneNumber,
       password,
-      profilePictureURL,
+      profilePictureURL: profilePictureURLRef.current.value,
     });
   };
 
   return (
     <>
       <div className="signup-container">
-        <h1>Stock Bazaar</h1>
+        <h1>TradeQuest</h1>
         <div className="signup-box">
           <h2>Create a New Account!</h2>
         </div>
@@ -36,52 +73,36 @@ export default function Signup() {
           <input
             type="text"
             placeholder="First name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            ref={firstNameRef}
             required
           />
           <input
             type="text"
             placeholder="Last name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            ref={lastNameRef}
             required
           />
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            required
-          />
+          <input type="email" placeholder="Email" ref={emailRef} required />
+          <input type="text" placeholder="Address" ref={addressRef} required />
           <input
             type="text"
             placeholder="Phone number"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            ref={phoneNumberRef}
             required
           />
           <input
             type="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            ref={passwordRef}
             required
           />
           <input
             type="text"
             placeholder="Profile Picture URL"
-            value={profilePictureURL}
-            onChange={(e) => setProfilePictureURL(e.target.value)}
+            ref={profilePictureURLRef}
             required
           />
+          {error && <p className="error-message">{error}</p>}
           <button type="submit" className="signup-button">
             Register
           </button>

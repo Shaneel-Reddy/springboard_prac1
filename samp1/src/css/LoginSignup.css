@@ -1,27 +1,37 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Arima', sans-serif;
     background-color: #121212;
     display: grid;
     place-items: center;
     height: 100vh;
     margin: 0;
+    background-image: url('D:/infosys springboard_prac/samp1/src/assets/stock-market-chart-technology-blue-background.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .login-container,
 .signup-container {
-    background-color: #1e1e1e;
+    background: linear-gradient(135deg, #1d4e89, #216498);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     text-align: center;
+    transition: transform 0.3s;
+}
+
+.login-container:hover,
+.signup-container:hover {
+    transform: translateY(-5px);
 }
 
 .login-container h1,
 .signup-container h1 {
-    color: #1c9ff6;
+    color: #f0f0f0;
     margin-bottom: 20px;
+    font-size: 34px;
 }
 
 .login-box,
@@ -34,7 +44,7 @@ body {
 .login-box h2,
 .signup-box h2 {
     font-size: 20px;
-    color: #b0b0b0;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
@@ -46,25 +56,44 @@ form {
 input[type="text"],
 input[type="password"],
 input[type="date"],
-input[type="email"],
-button {
+input[type="email"] {
     padding: 10px;
-    border: 1px solid #444;
+    border: 1px solid #428794;
     border-radius: 4px;
     font-size: 16px;
-    background-color: #2e2e2e;
-    color: #ddd;
+    background-color: #216498;
+    color: #ffffff;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="date"]::placeholder,
+input[type="email"]::placeholder {
+    color: #b0e0f0;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus {
+    border-color: #f0c040;
+    outline: none;
 }
 
 button {
-    background-color: #1c9ff6;
-    color: #fff;
+    padding: 10px;
+    background-color: #f0c040;
+    color: #000;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-    background-color: #1580c8;
+    background-color: #d3a630;
+    transform: scale(1.05);
 }
 
 .forgotten-account,
@@ -72,28 +101,28 @@ button:hover {
 .login-link {
     text-align: center;
     display: block;
-    color: #1c9ff6;
+    color: #ffffff;
     text-decoration: none;
     font-size: 14px;
+    transition: color 0.3s;
 }
 
 .forgotten-account:hover,
 .signup-link:hover,
 .login-link:hover {
-    color: #1580c8;
+    color: #f0c040;
     text-decoration: underline;
 }
 
 .dob1 {
-    color: #b0b0b0;
+    color: #f0f0f0;
     text-align: left;
     padding-left: 10px;
-    gap: 5px;
 }
 
 .gender {
     gap: 5px;
-    color: #b0b0b0;
+    color: #f0f0f0;
     text-align: left;
     padding-left: 10px;
 }
@@ -103,9 +132,16 @@ button:hover {
 }
 
 .signup-button {
-    background-color: #42b72a;
+    background-color: #f0c040;
 }
 
 .signup-button:hover {
-    background-color: #36a420;
+    background-color: #f0c040;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 8px;
 }
